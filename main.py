@@ -21,14 +21,15 @@ def __main__():
         elif choice == 4:
             image.remove_data_from_header()
             image.remove_first_gap()
+            image.remove_second_gap()
+            image.remove_last_gap()
         elif choice == 5:
-            pass
+            image.display_color_tables()
         elif choice == 6:
-            pass
+            image.display_icc_profiles()
         elif choice == 7:
             path = input("Choose path to save image:\n")
             image.save_image(path)
-
 def print_menu():
     print("\n\nMenu of Image processing program: ")
     print("\t 1 - Load image (default - test.bmp is loaded)")

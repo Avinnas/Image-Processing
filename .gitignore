@@ -123,3 +123,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+
+
+.idea/**
+bmp suite/
+color.txt
+icc.txt
