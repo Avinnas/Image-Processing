@@ -30,6 +30,11 @@ def __main__():
         elif choice == 7:
             path = input("Choose path to save image:\n")
             image.save_image(path)
+        elif choice == 8:
+            image.display_image()
+        elif choice == 9:
+            image.display_fourier_transform()
+
 def print_menu():
     print("\n\nMenu of Image processing program: ")
     print("\t 1 - Load image (default - test.bmp is loaded)")
@@ -39,6 +44,8 @@ def print_menu():
     print("\t 5 - Show color tables")
     print("\t 6 - Show ICC profiles")
     print("\t 7 - Save image")
+    print("\t 8 - Display image")
+    print("\t 9 - Display Fourier Transform")
     print("Choose one of these numbers:\n\n")
 
 

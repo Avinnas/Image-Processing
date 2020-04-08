@@ -1,4 +1,8 @@
 import random
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+from scipy import fftpack
 
 
 class bmpContainer:
@@ -223,6 +227,41 @@ class bmpContainer:
                 f.write(line)
             f.close()
 
+    def display_image(self):
+        self.save_image("temp.bmp")
+        img = cv2.imread("temp.bmp")
+        cv2.imshow("Image", img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
+    def display_fourier_transform(self):
+        self.save_image("temp.bmp")
+        im = cv2.imread('temp.bmp')[...,::-1]
+
+        plt.figure()
+        plt.imshow(im)
+        plt.title('Original image')
+
+        im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
+
+        im_fft = fftpack.fft2(im)
+        im_fft = fftpack.fftshift(im_fft)
+
+        plt.figure()
+        from matplotlib.colors import LogNorm
+        # A logarithmic colormap
+
+        plt.imshow(np.abs(im_fft), norm=LogNorm(vmin=5))
+        plt.colorbar()
+
+        plt.title('Fourier transform - Magnitude')
+
+        plt.figure()
+        plt.imshow(np.angle(im_fft))
+        plt.colorbar()
+        plt.title('Fourier Transform - Phase')
+
+        plt.show()
 
     def load_image(self, path):
         f = open(path, "rb")
