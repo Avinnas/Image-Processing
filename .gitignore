@@ -128,7 +128,7 @@ dmypy.json
 
 
 .idea
-
+.idea/
+bmp suite/
 color.txt
 icc.txt
-images
