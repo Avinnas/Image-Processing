@@ -125,10 +125,11 @@ dmypy.json
 .pyre/
 
 
-
-
+*.bmp
+images/
 .idea
 .idea/
 bmp suite/
 color.txt
 icc.txt
+notatki.txt
